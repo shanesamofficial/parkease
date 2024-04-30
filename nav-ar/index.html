@@ -1,37 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
 
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D AR Smart Parking System</title>
+  <!-- Add your favicon and other meta tags here -->
 
-  <!-- Required for favicon -->
-  <link rel="icon" href="./assets/favicon.ico" sizes="any"><!-- 32×32 -->
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
-  <link rel="apple-touch-startup-image" href="./assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
-  <link rel="manifest" href="./assets/manifest.webmanifest">
+  <!-- Include Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-
-  <!-- bootstrap css-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <!-- bootstrap icons-->
+  <!-- Include Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-  <!-- required by model viewer -->
+  <!-- Include Model Viewer script -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
 
-  <!-- required for qrcode-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"
-    integrity="sha512-pUhApVQtLbnpLtJn6DuzDD5o2xtmLJnJ7oBoMsBnzOkVkpqofGLGPaBJ6ayD2zQe3lCgCibhJBi4cj5wAxwVKA=="
-    crossorigin="anonymous"></script>
+  <!-- Include QRious script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 
+  <!-- Custom CSS for background image -->
+  <style>
+    body {
+      background-image: url('nav-ar/assets/bgimage.jpg'); /* Change the path to your background image */
+      background-repeat: no-repeat;
+      background-size: cover; /* Adjust as needed */
+      background-position: center; /* Adjust as needed */
+    }
+  </style>
 </head>
-
 
 <body class="text-center bg-white">
   <!-- whole web container inside body-->
@@ -45,21 +42,21 @@
         <!-- left column -->
         <div class="col">
 
-        <!-- right column   -->
-        <div class="col">
+          <!-- right column   -->
+          <div class="col">
 
-          <model-viewer
-            style="width: 300px; height: 500px; margin:0 auto; background-color: #ffffff00; outline: none;border: none"
-            src="./assets/scene.glb" ios-src="./assets/your3dmodel.usdz" alt="your 3d model" auto-rotate ar
-            ar-modes="scene-viewer webxr quick-look" camera-orbit="90deg 90deg 0.5m" min-camera-orbit="auto auto auto"
-            max-camera-orbit="auto auto 0.5m" camera-controls>
-          </model-viewer>
+            <model-viewer
+              style="width: 300px; height: 500px; margin:0 auto; background-color: #ffffff00; outline: none;border: none"
+              src="./assets/scene.glb" ios-src="./assets/your3dmodel.usdz" alt="your 3d model" auto-rotate ar
+              ar-modes="scene-viewer webxr quick-look" camera-orbit="90deg 90deg 0.5m" min-camera-orbit="auto auto auto"
+              max-camera-orbit="auto auto 0.5m" camera-controls>
+            </model-viewer>
+
+          </div>
 
         </div>
 
       </div>
-
-    </div>
 
 
       <script>
@@ -76,43 +73,41 @@
         })();
       </script>
 
-    <!-- script required for embed section -->
-    <script>
-      function getFrameUrl() {
-        var str = window.location.href;
-        var index = str.lastIndexOf("/");
-        return str.substr(0, index) + "/frame.html";
-      }
+      <!-- script required for embed section -->
+      <script>
+        function getFrameUrl() {
+          var str = window.location.href;
+          var index = str.lastIndexOf("/");
+          return str.substr(0, index) + "/frame.html";
+        }
 
-      function getEmbedCode() {
-        return '<iframe src="' + getFrameUrl() + '" allow="xr xr-spatial-tracking" scrolling="no" frameborder="0" style="height: 100%; width: 100%; border: 0;"></iframe>'
-      }
+        function getEmbedCode() {
+          return '<iframe src="' + getFrameUrl() + '" allow="xr xr-spatial-tracking" scrolling="no" frameborder="0" style="height: 100%; width: 100%; border: 0;"></iframe>'
+        }
 
-      function copyTextToClipboard() {
-        var text = getEmbedCode();
-        navigator.clipboard.writeText(text).then(function () {
-          console.log('Async: Copying to clipboard was successful!');
-        }, function (err) {
-          console.error('Async: Could not copy text: ', err);
-        });
-      }
-      document.getElementById("codeTextArea").innerHTML = getEmbedCode();
-    </script>
+        function copyTextToClipboard() {
+          var text = getEmbedCode();
+          navigator.clipboard.writeText(text).then(function () {
+            console.log('Async: Copying to clipboard was successful!');
+          }, function (err) {
+            console.error('Async: Could not copy text: ', err);
+          });
+        }
+        document.getElementById("codeTextArea").innerHTML = getEmbedCode();
+      </script>
 
 
 
-    <!-- footer section -->
-    <footer class="text-black-50 mt-5">
+      <!-- footer section -->
+      <footer class="text-black-50 mt-5">
+        <P class="mb-0 small">AR Smart Parking System</P>
+        <p class="small">ParkEase - BitTechie</p>
+      </footer>
+    </div>
 
-      <P class="mb-0 small">AR Smart Parking System</P>
-      <p class="small">ParkEase - BitTechie</p>
-    </footer>
+    <!-- bootstrap requirement-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </div>
-
-  <!-- bootstrap requirement-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-    crossorigin="anonymous"></script>
 </body>
 
 </html>
